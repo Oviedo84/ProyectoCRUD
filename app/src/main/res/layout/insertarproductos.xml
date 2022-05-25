@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertarProductos">
+
+    <EditText
+        android:id="@+id/insertNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Ingresa Nombre"/>
+
+    <EditText
+        android:id="@+id/insertDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/insertNombre"
+        android:hint="Ingresa Descripcion"/>
+
+    <EditText
+        android:id="@+id/insertPventa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/insertDescripcion"
+        android:hint="Ingresa Venta"/>
+
+    <EditText
+        android:id="@+id/insertPcompra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/insertPventa"
+        android:hint="Ingresa Compra"/>
+
+    <EditText
+        android:id="@+id/insertFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/insertPcompra"
+        android:hint="Ingresa Fecha"/>
+
+    <EditText
+        android:id="@+id/insertActivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/insertFecha"
+        android:hint="Ingresa Activo"/>
+
+    <EditText
+        android:id="@+id/insertCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/insertActivo"
+        android:hint="Ingresa Cantidad" />
+
+    <Button
+        android:id="@+id/Insertar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/insertCantidad"
+        android:text="Insertar"/>
+</RelativeLayout>
