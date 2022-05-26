@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.Button;
 
 import com.android.volley.Request;
@@ -14,29 +14,37 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class productos extends AppCompatActivity {
-    TextView tView;
+import java.util.ArrayList;
+
+public class ListarProductos extends AppCompatActivity {
+    ListView listV;
     private String products = "http://192.168.0.8:8080/listProd";
     RequestQueue requestQueue;
-    private Button button;
+    private FloatingActionButton button;
+    Adaptador adaptador;
+    public static ArrayList<Productos>producto = new ArrayList<>();
+    Productos product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.productos);
+        setContentView(R.layout.listarproductos);
         requestQueue = Volley.newRequestQueue(this);
         this.init();
         this.getProductos();
     }
 
     private void init(){
-        tView = (TextView) findViewById(R.id.showProducts);
+        listV = findViewById(R.id.showProducts);
         button = findViewById(R.id.insert);
+        adaptador = new Adaptador(this, producto);
+        listV.setAdapter(adaptador);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -70,9 +78,9 @@ public class productos extends AppCompatActivity {
                                 String fecha = jsonObject.getString("fecha");
                                 String activo = jsonObject.getString("activo");
                                 String cantidad = jsonObject.getString("cantidad");
-
-                                tView.append("Nombre: " + nombre + ", ");
-                                tView.append("Descripcion: " + descripcion + "\n");
+                                product = new Productos(producto_id, nombre, descripcion, p_venta, p_compra, fecha, activo, cantidad);
+                                producto.add(product);
+                                adaptador.notifyDataSetChanged();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
