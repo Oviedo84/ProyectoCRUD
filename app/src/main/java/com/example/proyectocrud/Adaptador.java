@@ -5,35 +5,75 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.content.Context;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class Adaptador extends ArrayAdapter<Productos> {
     Context context;
     List<Productos>arraylistProductos;
+    private Context mContext;
     public Adaptador(@NonNull Context context, List<Productos>arraylistProductos){
         super(context, R.layout.row_layout, arraylistProductos);
         this.context = context;
         this.arraylistProductos = arraylistProductos;
+        this.mContext = context;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout, null, true);
-        TextView nombre = view.findViewById(R.id.nombre);
-        TextView precio = view.findViewById(R.id.precio);
-        TextView cantidad = view.findViewById(R.id.cantidad);
+    public View getView(int position, View convertView, ViewGroup parent){
+        ViewHolder mainViewHolder = null;
+        if(convertView == null) {
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout, null, true);
+            ViewHolder viewHolder = new ViewHolder();
+            viewHolder.nombre = (TextView) convertView.findViewById(R.id.nombre);
+            viewHolder.precio = (TextView) convertView.findViewById(R.id.precio);
+            viewHolder.cantidad = (TextView) convertView.findViewById(R.id.cantidad);
+            viewHolder.editProduct = (ImageButton) convertView.findViewById(R.id.editProduct);
+            viewHolder.deleteProduct = (ImageButton)  convertView.findViewById(R.id.deleteProduct);
+            viewHolder.infoProduct = (ImageButton) convertView.findViewById(R.id.infoProduct);
 
-        nombre.setText(arraylistProductos.get(position).getNombre());
-        precio.setText(arraylistProductos.get(position).getP_venta());
-        cantidad.setText(arraylistProductos.get(position).getCantidad());
-        return view;
+            viewHolder.infoProduct.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getContext(), arraylistProductos.get(position).getDescripcion() + " " + arraylistProductos.get(position).getProducto_id(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            viewHolder.deleteProduct.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String id = arraylistProductos.get(position).getProducto_id();
+                    if(mContext instanceof MainProductos){
+                        ((MainProductos)mContext).eliminarproducto(id);
+                    }
+                }
+            });
+
+            viewHolder.nombre.setText(arraylistProductos.get(position).getNombre());
+            viewHolder.precio.setText(arraylistProductos.get(position).getP_venta());
+            viewHolder.cantidad.setText(arraylistProductos.get(position).getCantidad());
+        }
+        else{
+            mainViewHolder = (ViewHolder) convertView.getTag();
+            mainViewHolder.nombre.setText(arraylistProductos.get(position).getNombre());
+            mainViewHolder.precio.setText(arraylistProductos.get(position).getP_venta());
+            mainViewHolder.cantidad.setText(arraylistProductos.get(position).getCantidad());
+        }
+        return convertView;
+    }
+
+    public class ViewHolder{
+        TextView nombre;
+        TextView precio;
+        TextView cantidad;
+        ImageButton editProduct;
+        ImageButton deleteProduct;
+        ImageButton infoProduct;
     }
 }

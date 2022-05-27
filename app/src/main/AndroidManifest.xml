@@ -18,13 +18,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".EliminarProducto"
+            android:exported="false" />
+        <activity
             android:name=".EditarProducto"
             android:exported="false" />
         <activity
             android:name=".InsertarProductos"
             android:exported="false" />
         <activity
-            android:name=".ListarProductos"
+            android:name=".MainProductos"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

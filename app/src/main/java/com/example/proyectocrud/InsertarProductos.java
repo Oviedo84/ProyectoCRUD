@@ -88,13 +88,8 @@ public class InsertarProductos extends AppCompatActivity {
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            if(response.equalsIgnoreCase("Datos insertados correctamente")){
-                                Toast.makeText(InsertarProductos.this, "Datos insertados correctamente", Toast.LENGTH_SHORT).show();
-                                progressDialog.dismiss();
-                            }else{
-                                Toast.makeText(InsertarProductos.this, response, Toast.LENGTH_SHORT).show();
-                                progressDialog.dismiss();
-                            }
+                            Toast.makeText(InsertarProductos.this, "Datos insertados correctamente", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
                         }
                     }, new Response.ErrorListener() {
                             @Override

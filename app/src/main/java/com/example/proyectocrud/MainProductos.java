@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ListarProductos extends AppCompatActivity {
+public class MainProductos extends AppCompatActivity {
     ListView listV;
     private String products = "http://192.168.0.8:8080/listProd";
     RequestQueue requestQueue;
@@ -104,6 +104,23 @@ public class ListarProductos extends AppCompatActivity {
     }
 
     public void eliminarproducto(String id) {
-        Toast.makeText(this, "Datos insertados correctamente" + id, Toast.LENGTH_SHORT).show();
+        String deleteProduct = "http://192.168.0.8:8080/deleteProduct/" + id;
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.DELETE,
+                deleteProduct,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(MainProductos.this, "Datos eliminados correctamente", Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Toast.makeText(MainProductos.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+        );
+
+        requestQueue.add(stringRequest);
     }
 }
