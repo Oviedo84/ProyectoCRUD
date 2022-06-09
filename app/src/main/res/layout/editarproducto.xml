@@ -3,69 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="#676464"
+    android:backgroundTint="#676464"
+    android:orientation="vertical"
     tools:context=".EditarProducto">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:text="EDICIÓN DE PRODUCTOS"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#4EC653"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Nombre"/>
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:hint="Nombre"
+        android:paddingLeft="35dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/editDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/editNombre"
-        android:hint="Descripcion"/>
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-50dp"
+        android:hint="Descripción"
+        android:paddingRight="15dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/editPventa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/editDescripcion"
-        android:hint="Venta"/>
+        android:layout_marginLeft="200dp"
+        android:hint="Venta"
+        android:paddingLeft="35dp"
+        android:layout_marginTop="11dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/editPcompra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/editPventa"
-        android:hint="Compra"/>
-
-    <EditText
-        android:id="@+id/editFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editPcompra"
-        android:hint="Fecha"/>
+        android:layout_marginTop="-49dp"
+        android:paddingLeft="35dp"
+        android:hint="Compra"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/editActivo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/editFecha"
-        android:hint="Activo"/>
+        android:layout_marginTop="10dp"
+        android:paddingLeft="35dp"
+        android:textAlignment="center"
+        android:hint="Activo"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/editFecha"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/editPcompra"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="-49dp"
+        android:hint="Fecha"
+        android:paddingLeft="15dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/editCantidad"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/editActivo"
-        android:hint="Cantidad" />
+        android:layout_marginTop="10dp"
+        android:hint="Cantidad"
+        android:layout_marginLeft="230dp"
+        android:paddingLeft="15dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <Button
         android:id="@+id/edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/editCantidad"
-        android:text="Editar"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#57B52F"
+        android:text="Editar" />
+
 </LinearLayout>

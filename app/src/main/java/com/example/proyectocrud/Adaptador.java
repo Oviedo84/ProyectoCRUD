@@ -13,10 +13,10 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
-
 public class Adaptador extends ArrayAdapter<Productos> {
     Context context;
     List<Productos>arraylistProductos;
+    public String id;
     private Context mContext;
     public Adaptador(@NonNull Context context, List<Productos>arraylistProductos){
         super(context, R.layout.row_layout, arraylistProductos);
@@ -27,44 +27,35 @@ public class Adaptador extends ArrayAdapter<Productos> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        ViewHolder mainViewHolder = null;
-        if(convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout, null, true);
-            ViewHolder viewHolder = new ViewHolder();
-            viewHolder.nombre = (TextView) convertView.findViewById(R.id.nombre);
-            viewHolder.precio = (TextView) convertView.findViewById(R.id.precio);
-            viewHolder.cantidad = (TextView) convertView.findViewById(R.id.cantidad);
-            viewHolder.editProduct = (ImageButton) convertView.findViewById(R.id.editProduct);
-            viewHolder.deleteProduct = (ImageButton)  convertView.findViewById(R.id.deleteProduct);
-            viewHolder.infoProduct = (ImageButton) convertView.findViewById(R.id.infoProduct);
+        convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout, null, true);
+        ViewHolder viewHolder = new ViewHolder();
+        viewHolder.nombre = (TextView) convertView.findViewById(R.id.nombre);
+        viewHolder.precio = (TextView) convertView.findViewById(R.id.precio);
+        viewHolder.cantidad = (TextView) convertView.findViewById(R.id.cantidad);
+        viewHolder.editProduct = (ImageButton) convertView.findViewById(R.id.editProduct);
+        viewHolder.deleteProduct = (ImageButton)  convertView.findViewById(R.id.deleteProduct);
+        viewHolder.infoProduct = (ImageButton) convertView.findViewById(R.id.infoProduct);
 
-            viewHolder.infoProduct.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getContext(), arraylistProductos.get(position).getDescripcion() + " " + arraylistProductos.get(position).getProducto_id(), Toast.LENGTH_SHORT).show();
+        viewHolder.infoProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), arraylistProductos.get(position).getDescripcion() + " " + arraylistProductos.get(position).getProducto_id(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        viewHolder.deleteProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                id = arraylistProductos.get(position).getProducto_id();
+                if(mContext instanceof MainProductos){
+                    ((MainProductos)mContext).eliminarproducto(id);
                 }
-            });
+            }
+        });
 
-            viewHolder.deleteProduct.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String id = arraylistProductos.get(position).getProducto_id();
-                    if(mContext instanceof MainProductos){
-                        ((MainProductos)mContext).eliminarproducto(id);
-                    }
-                }
-            });
-
-            viewHolder.nombre.setText(arraylistProductos.get(position).getNombre());
-            viewHolder.precio.setText(arraylistProductos.get(position).getP_venta());
-            viewHolder.cantidad.setText(arraylistProductos.get(position).getCantidad());
-        }
-        else{
-            mainViewHolder = (ViewHolder) convertView.getTag();
-            mainViewHolder.nombre.setText(arraylistProductos.get(position).getNombre());
-            mainViewHolder.precio.setText(arraylistProductos.get(position).getP_venta());
-            mainViewHolder.cantidad.setText(arraylistProductos.get(position).getCantidad());
-        }
+        viewHolder.nombre.setText(arraylistProductos.get(position).getNombre());
+        viewHolder.precio.setText(arraylistProductos.get(position).getP_venta());
+        viewHolder.cantidad.setText(arraylistProductos.get(position).getCantidad());
         return convertView;
     }
 

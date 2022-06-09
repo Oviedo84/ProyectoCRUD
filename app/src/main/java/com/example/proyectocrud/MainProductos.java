@@ -2,6 +2,7 @@ package com.example.proyectocrud;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -120,7 +121,17 @@ public class MainProductos extends AppCompatActivity {
             }
         }
         );
-
         requestQueue.add(stringRequest);
+        reloadProductos();
+    }
+
+    private void reloadProductos(){
+        adaptador.clear();
+        listV.destroyDrawingCache();
+        overridePendingTransition(0, 0);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 }

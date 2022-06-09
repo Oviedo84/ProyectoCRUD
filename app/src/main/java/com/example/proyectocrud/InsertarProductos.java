@@ -3,6 +3,7 @@ package com.example.proyectocrud;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,12 +52,13 @@ public class InsertarProductos extends AppCompatActivity {
         buttonInsert.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v){
-               insertar();
+               if(insertar())
+                   mainproducto();
            }
         });
     }
 
-    private void insertar() {
+    private boolean insertar() {
         String nombre = insertNombre.getText().toString().trim();
         String Descripcion = insertDescripcion.getText().toString().trim();
         String Pventa = insertPventa.getText().toString().trim();
@@ -68,18 +70,25 @@ public class InsertarProductos extends AppCompatActivity {
         ProgressDialog progressDialog = new ProgressDialog(this);
         if (nombre.isEmpty()) {
             insertNombre.setError("Complete el campo");
+            return false;
         } else if (Descripcion.isEmpty()) {
             insertDescripcion.setError("Complete el campo");
+            return false;
         } else if (Pventa.isEmpty()) {
             insertPventa.setError("Complete el campo");
+            return false;
         } else if (Pcompra.isEmpty()) {
             insertPcompra.setError("Complete el campo");
+            return false;
         } else if (Fecha.isEmpty()) {
             insertFecha.setError("Complete el campo");
+            return false;
         } else if (Cantidad.isEmpty()) {
             insertCantidad.setError("Complete el campo");
+            return false;
         } else if (Activo.isEmpty()) {
             insertActivo.setError("Complete el campo");
+            return false;
         } else {
             progressDialog.show();
             StringRequest stringRequest = new StringRequest(
@@ -114,5 +123,11 @@ public class InsertarProductos extends AppCompatActivity {
             };
             requestQueue.add(stringRequest);
         }
+        return true;
+    }
+
+    private void mainproducto(){
+        Intent intent = new Intent(this, MainProductos.class);
+        startActivity(intent);
     }
 }

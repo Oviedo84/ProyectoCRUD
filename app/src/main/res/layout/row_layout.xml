@@ -3,55 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#424242">
 
-    <TextView
-        android:id="@+id/nombre"
-        android:layout_width="120dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/precio"
-        android:layout_width="70dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/nombre"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/cantidad"
         android:layout_width="70dp"
         android:layout_height="32dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="40dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/precio"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/editProduct"
-        android:layout_width="32dp"
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="120dp"
         android:layout_height="32dp"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="7dp"
-        app:layout_constraintEnd_toStartOf="@+id/deleteProduct"
-        app:layout_constraintStart_toEndOf="@+id/infoProduct"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/deleteProduct"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="12dp"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="#57B52F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/editProduct"
@@ -65,10 +52,37 @@
         android:layout_marginStart="7dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="5dp"
+        android:backgroundTint="#0000"
+        android:tint="#57B52F"
         app:layout_constraintEnd_toStartOf="@+id/editProduct"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/cantidad"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <TextView
+        android:id="@+id/precio"
+        android:layout_width="70dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/nombre"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/editProduct"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="7dp"
+        android:backgroundTint="#00272626"
+        android:tint="#57B52F"
+        app:layout_constraintEnd_toStartOf="@+id/deleteProduct"
+        app:layout_constraintStart_toEndOf="@+id/infoProduct"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

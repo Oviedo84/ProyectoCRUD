@@ -4,67 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#676464"
     tools:context=".InsertarProductos">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:foregroundTint="#E8DDDD"
+        android:text="INSERTAR PRODUCTOS"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#4EC653"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/insertNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Ingresa Nombre"/>
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="130dp"
+        android:hint="Ingresa Nombre"
+        android:paddingLeft="35dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/insertDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/insertNombre"
-        android:hint="Ingresa Descripcion"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-50dp"
+        android:layout_marginEnd="25dp"
+        android:hint="Ingresa Descripción"
+        android:paddingRight="15dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/insertPventa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/insertDescripcion"
-        android:hint="Ingresa Venta"/>
+        android:layout_marginTop="11dp"
+        android:hint="Ingresa Venta"
+        android:paddingLeft="35dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/insertPcompra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/insertPventa"
-        android:hint="Ingresa Compra"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-49dp"
+        android:layout_marginEnd="25dp"
+        android:hint="Ingresa Compra"
+        android:paddingLeft="15dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/insertFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/insertPcompra"
-        android:hint="Ingresa Fecha"/>
+        android:layout_marginTop="10dp"
+        android:hint="Ingresa Fecha"
+        android:paddingLeft="35dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/insertActivo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/insertFecha"
-        android:hint="Ingresa Activo"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-49dp"
+        android:layout_marginEnd="37dp"
+        android:hint="Ingresa Activo"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/insertCantidad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/insertActivo"
-        android:hint="Ingresa Cantidad" />
+        android:layout_marginTop="10dp"
+        android:hint="Ingresa Cantidad"
+        android:paddingLeft="35dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/white" />
 
     <Button
         android:id="@+id/Insertar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/insertCantidad"
-        android:text="Insertar"/>
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="135dp"
+        android:layout_marginEnd="134dp"
+        android:backgroundTint="#57B52F"
+        android:text="Insertar" />
 </RelativeLayout>
